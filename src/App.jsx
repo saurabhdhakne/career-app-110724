@@ -20,10 +20,10 @@ function App() {
   const { isAuthenticated, isAdmin } = useContext(AppContext);
 
   return (
-    <div className="container mx-auto h-screen flex flex-col items-center justify-center">
+    <div className="h-screen flex-col items-center justify-center">
       <Router>
         <Navbar isAuthenticated={isAuthenticated} isAdmin={isAdmin} />
-        <div className=" flex flex-row h-full shadow overflow-y-auto">
+        <div className="">
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/login" element={<Login />} />

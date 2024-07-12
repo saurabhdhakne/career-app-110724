@@ -11,8 +11,9 @@ const Navbar = () => {
   const navItems = [
     { name: "Home", href: "/home", current: false },
     { name: "Services", href: "/services", current: false },
-    { name: "Pricing", href: "#", current: false },
-    { name: "Contact", href: "#", current: false },
+    { name: "About", href: "/#about", current: false },
+    { name: "Contact", href: "/#contact", current: false },
+    { name: "Blogs", href: "/blog", current: false },
   ];
 
   const handleLogout = () => {
@@ -28,7 +29,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-white border-gray-200 w-full shadow-sm z-40">
+      <nav className="fixed w-full z-40">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <Link
             to="/"
@@ -40,7 +41,7 @@ const Navbar = () => {
               alt="Flowbite Logo"
             />
             <span className="self-center text-2xl font-normal whitespace-nowrap">
-              Career App
+              AspireCareerSolutions
             </span>
           </Link>
           <button
@@ -72,7 +73,7 @@ const Navbar = () => {
             className="hidden w-full md:block md:w-auto"
             id="navbar-dropdown"
           >
-            <ul className="flex flex-col items-center font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
+            <ul className="flex flex-col items-center font-medium p-4 md:p-0 mt-4 border rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
               {navItems.map((item, index) => (
                 <li key={index}>
                   <Link
@@ -110,13 +111,32 @@ const Navbar = () => {
                   </button>
                 </>
               ) : (
+                <div className="min-w-[150px] flex justify-end">
                 <button
                   onClick={() => navigate("/login")}
-                  type="button"
-                  className="text-white bg-primary hover:bg-primary-dark focus:ring-4 focus:ring-primary-light font-medium rounded-lg text-sm px-5 py-2.5  dark:bg-primary dark:hover:bg-primary-dark focus:outline-none dark:focus:ring-primary-dark"
+                  className="group relative inline-flex items-center overflow-hidden rounded-md bg-violet-600 px-8 py-3 text-white focus:outline-none focus:ring active:bg-violet-500"
+                  href="#"
                 >
-                  Login
+                  <span className="absolute -end-full transition-all group-hover:end-4">
+                    <svg
+                      className="size-5 rtl:rotate-180"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
+                    </svg>
+                  </span>
+
+                  <span className="text-sm font-medium transition-all group-hover:me-4"> Sign In </span>
                 </button>
+                </div>
               )}
             </ul>
           </div>
